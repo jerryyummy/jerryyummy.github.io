@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Jerry's blog
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="jerry elementary life discovery" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 5.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Jerry</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Algorithm/">Algorithm</a></li><li><a class="category-link" href="/categories/Operate-System/">Operate System</a></li><li><a class="category-link" href="/categories/Software-Engineer/">Software Engineer</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="Introduction">
+		                Introduction
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="相册">
+		                相册
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="Tags">
+		                Tags
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/jerryyummy" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://s1.ax1x.com/2020/10/14/0I7P91.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >计算机组成和体系结构学习笔记（随时更新）</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="计算机组成和体系结构"><a href="#计算机组成和体系结构" class="headerlink" title="计算机组成和体系结构"></a>计算机组成和体系结构</h1><p>[toc]</p>
+<hr>
+<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><ul>
+<li><p><strong>指令集体体系结构（ISA）：ISA是在机器上运行的所有软件和执行这些软件的硬件之间的协定接口</strong></p>
+</li>
+<li><p><input disabled="" type="checkbox">  **硬件软件等效性：一切硬件可以实现的软件也可以实现反之亦然 **</p>
+</li>
+<li><p><strong>计算机3个组成部分：处理器，储存器，I/O设备</strong></p>
+</li>
+<li><p><input disabled="" type="checkbox">  摩尔定律：硅芯片的密度每18个月翻一番</p>
+</li>
+<li><p><input disabled="" type="checkbox">  Rock定律：制造半导体集成电路主要设备成本每4年就要翻一番</p>
+</li>
+<li><p><strong>SSI：小规模集成电 MSI：中规模集成电路LSI：大规模集成电路 VSI：超大规模集成电路</strong></p>
+</li>
+<li><p><strong>冯诺依曼主要结构（vonNeumann architecture）：</strong></p>
+<p><strong>由三大硬件系统组成：中央处理器、主存储器系统、I/O系统。</strong></p>
+<p>**具有执行顺序指令的处理能力。在主存储器系统和CPU的控制单元之间，包含一条物理上的或者是逻辑上的单一通道，可以强制改变指令和执行的周期。对提取的指令进行译码，变成ALU能够理解的一种语言。ALU执行指令，并将执行的结果存放到寄存器或者存储器中 **</p>
+</li>
+</ul>
+<hr>
+<h2 id="第四章-3-4-6-8-13-15，21"><a href="#第四章-3-4-6-8-13-15，21" class="headerlink" title="第四章$3,4,6,8,13,15，21$"></a>第四章$3,4,6,8,13,15，21$</h2><ul>
+<li><p><strong>CPU：中央处理器负责提取程序指令，并对指令进行译码，然后按程序规定的顺序对正确的数据执行各种操作</strong></p>
+</li>
+<li><p><input disabled="" type="checkbox">  CPU（中央处理器）可分成两部分：数据通道和控制单元</p>
+</li>
+<li><p><input disabled="" type="checkbox">  ALU（算术逻辑单元）：在程序执行过程中用于进行逻辑运算和算术运算</p>
+</li>
+<li><p><input disabled="" type="checkbox">  控制单元：该模块负责对各种操作进行排序并保证各种正确的数据适时出现在所需的地方</p>
+</li>
+<li><p><input disabled="" type="checkbox">  总线：一组导电线路的组合，作为共享和公用的数据通道将系统内的各个子系统连接到一起（点对点，多点）</p>
+</li>
+<li><p><strong>三种总线（bus）：数据总线，地址总线，控制总线</strong></p>
+</li>
+<li><p><strong>数据总线：用于数据传递的总线；控制总线：指示哪个设备允许使用总线，以及使用总线的目的，也传递有关总线请求，中断和时钟同步信号的响应信号。地址总线：指出数据读写的位置</strong></p>
+</li>
+<li><p><strong>总线周期（bus cycle）: 完成总线信息传送所需的时钟脉冲间的时间间隔</strong></p>
+</li>
+<li><p><input disabled="" type="checkbox">  同步（synchronous）总线：事件发生的顺序由时钟脉冲来控制</p>
+<p> 异步（asynchronous）总线：负责协调计算机的各种操作，用握手协议来强制实现与计算机其他操作同步</p>
+</li>
+<li><p><strong>总线仲裁(bus arbitration)：①菊花链(daisy chain)仲裁方式：硬件结构简单，缺乏公平,按照优先级从高的设备传向低的设备，低的设备可能没有机会使用总线②集中式平行仲裁方式(centralized parallel)：每个设备公平使用总线，硬件结构复杂，瓶颈效应，所有外设一起申请使用③采用自选择的分配式仲裁器方式(distributed using self-detection)：每个设备自己检查总决定哪个设备具有最高优先级，不同于集中式，没有中央仲裁器④采用冲突检测的分配式仲裁方式(distributed using collision-detection)：以太网用这种，每个设备都允许向总线发出申请，如果总线检查到冲突就让设备再发出另一个总线请求</strong></p>
+</li>
+<li><p><input disabled="" type="checkbox">  时钟周期：定义为时钟频率的倒数，时钟周期是计算机中最基本的最小的时间单位，一个时钟周期内，CPU仅完成一个最基本的动作。（量度系统指令的性能）</p>
+</li>
+<li><p><strong>I/O接口的主要功能：负责系统总线和各外围设备之间的信号转换，将信号变成总线和外围设备都可以接受的形式。</strong></p>
+</li>
+<li><p><strong>I/O的两种映射方式：内存映射；基于指令</strong></p>
+</li>
+<li><p><strong>存储器组成和寻址方式：将存储器设想成一个数据位的阵列，阵列每一行长度等于机器字大小</strong></p>
+</li>
+<li><p><strong>低位交叉储存和高位交叉储存，单独一块内存内部地址是否连续?</strong></p>
+</li>
+</ul>
+<img src="C:\Users\Jerry Yummy\Documents\Tencent Files\461697582\FileRecv\MobileFile\IMG_4873.PNG" style="zoom: 25%;" />
+
+<ul>
+<li><p><input disabled="" type="checkbox">  中断：改变系统正常执行流程的各种事件</p>
+</li>
+<li><p><input disabled="" type="checkbox">  中断类型：屏蔽中断：可以禁止或忽略；非屏蔽中断：高优先级别中断，不能被禁止，必须响应。（还有同步中断，异步中断）</p>
+</li>
+<li><p><input disabled="" type="checkbox">  中断驱动I/O如何工作;cpu识别一个中断请求时，确认中断服务地址，并且执行这一中断服务的程序。Cpu从原来的程序转去执行某个特定的程序进程处理中断，进行取指译码执行周期，直到中断程序编码运行完毕，CPU再返回之前运行的程序</p>
+</li>
+<li><p><strong>通道控制的I/O与中断控制的I/O有什么不同：中断控制的I/O每次传输一个字节，而通道控制的I/O只是在一组字节的传输完成或者失败后才会中断CPU.而且中断控制的I/O只需要很少的CPU</strong></p>
+</li>
+<li><p><input disabled="" type="checkbox">  MARIE</p>
+<p>![image-20201013090726149](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201013090726149.png)</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>使用二进制数和补码表示法</li>
+<li>16位指令，4位操作码12位地址</li>
+<li>ALU位宽16位</li>
+<li>4k words of word-addressable main memory</li>
+<li>MARIE内部使用一条公用总线，并对这些设备进行编号</li>
+<li>从MBR到AC之间有一条单独的数据通道，从MBR到ALU还有一条特殊通道，ALU到AC也有特殊通道</li>
+<li>stored program,fixed word length data and instructions:存储程序，固定字长数据和指令</li>
+</ul>
+<ul>
+<li><p><input disabled="" type="checkbox">  在MARIE中，7种寄存器（register）：①AC：累加器，保存数据值，16位；②MAR：储存器地址寄存器，保存指令和被引用数据的存储器地址，12位③MBR：存储器缓冲寄存器，用来保持程序将要执行的下一条指令，16位④PC：程序计数器，用来保持程序将要执行的下一条指令的地址，12位⑤IR:指令寄存器，储存正在执行的指令⑥InREG:输入寄存器：用来保持来自输入设备的数据⑦OutREG:输出寄存器：用来保持要输出到输出设备的数据</p>
+</li>
+<li><p><input disabled="" type="checkbox">  阐述MARIE每条指令的工作方式：![](C:\Users\Jerry Yummy\Documents\Tencent Files\461697582\FileRecv\MobileFile\IMG_4874.PNG)</p>
+</li>
+<li><p><input disabled="" type="checkbox">  RTL寄存器传输语言：每个指令由一系列微指（mini instruction）令又称为微操作(micro operration)组成</p>
+<ul>
+<li>LOAD X:MAR&lt;-X;MBR&lt;-M[MAR],AC&lt;-MBR(AC与MBR之间有一个内部通路)</li>
+<li>ADD X:MAR&lt;-X;MBR&lt;-M[MAR] (MBR直接送入ALU);AC&lt;-AC+MBR</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox">  FETCH-DECODE-EXCUTE style：</p>
+<p>![image-20201013090846263](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201013090846263.png)</p>
+</li>
+<li><p><input disabled="" type="checkbox">  Discussion on Assemblers</p>
+</li>
+</ul>
+<ul>
+<li><p>In assembly language, there is a one-to-one correspondence between a mnemonic </p>
+<p>instruction and its machine code. </p>
+</li>
+<li><p>Assemblers create an object program file from mnemonic source code in two passes.</p>
+</li>
+<li><p>During the first pass, the assembler assembles as much of the program is it can, while it builds a symbol table that contains memory references for all symbols in the program。During the second pass, the instructions are completed using the values from the symbol table。</p>
+</li>
+</ul>
+<ul>
+<li><p><input disabled="" type="checkbox">  decoding:hardwired control and microprogrammed control</p>
+<blockquote>
+<p>Hardwired control units give better performance, while microprogrammed units are more adaptable to changes</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="第五章-2-3-8-9-11-13-14-15-16-19"><a href="#第五章-2-3-8-9-11-13-14-15-16-19" class="headerlink" title="第五章$2,3,8,9,11,13,14,15,16,19$"></a>第五章$2,3,8,9,11,13,14,15,16,19$</h2><ul>
+<li><p><strong>固定长度指令和可变长度指令优缺点：固定长度：浪费存储空间，执行速度快；可变长度译码比较复杂，节省储存空间</strong>3</p>
+</li>
+<li><p><strong>扩展操作码（expanding opcode）：设计一个指令总长度固定的指令系统体系结构</strong></p>
+</li>
+<li><p><input disabled="" type="checkbox">  小端：将低位的字节首先存放到低位的地址，然后再将最高位的字节存放到高位地址</p>
+<ul>
+<li><p>Makes it easier to place values on non-word boundaries. </p>
+</li>
+<li><p>Conversion from a 16-bit integer address to a 32-bit integer address does not require any arithmetic.</p>
+</li>
+</ul>
+<p>大端：将最高位的字节存放到低位地址然后再存放最低位的字节</p>
+<ul>
+<li><p>Is more natural. </p>
+</li>
+<li><p>The sign of the number can be determined by looking at the byte at address offset </p>
+</li>
+<li><p>Strings and integers are stored in the same order</p>
+</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox">  CPU三种不同的体系结构：</p>
+<ol>
+<li>堆栈体系机构(一个堆栈不能被随机访问，只能访问栈顶）；</li>
+<li>累加器体系结构（二进制操作的一个操作数隐式地存在于累加器中）只有一个累加器，性能不太高；</li>
+<li>通用寄存器体系结构（Faster than accumulator architecture；Efficient implementation for compilers；Results in longer instructions–需要指定所有的寄存器地址）</li>
+</ol>
+</li>
+<li><p><input disabled="" type="checkbox">  Most systems today are GPR systems： There are three types:</p>
+<ul>
+<li>Memory-memory where two or three operands may be in memory.</li>
+<li>Register-memory where at least one operand must be in a register.(台式机)</li>
+<li>Load-store where no operands may be in memory.（必须使用堆栈）</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox">  寻址方式（addressing mode）：是指定指令中操作位数的位置的方法</p>
+</li>
+<li><p><strong>几种基本寻址方式：①立即Immediate寻址，在指令中操作代码后面的数值被直接引用②直接寻址Direct，指令中直接指定要引用的数值的存储器地址③寄存器register寻址，与直接寻址相似，指令地址域包含的是一个寄存器引用④间接Indirect寻址，操作数有效地址通过访问这个存储器地址来获取⑤变址indexed寻址和基址寻址变址寄存器存储一个偏移量，用来与操作数相加产生指令所要求的有效地址、基址寄存器保存一个基地址，对应的指令地址域中的内容所表示的是偏离该基地址的位移量⑥堆栈stack寻址</strong></p>
+</li>
+<li><p><input disabled="" type="checkbox">  流水线（pipeline）：有些cpu将取指译码执行周期分解成较小的步骤，其中的某些较小的步骤可以并行执行。</p>
+</li>
+</ul>
+<hr>
+<h2 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h2><ul>
+<li><p><strong>SRAM的速度比DRAM快，但价格更高。主存储器使用DRAM的好处：存储密度高，价格便宜，消耗的功耗低，比SRAM产生的热量小很多</strong></p>
+</li>
+<li><p><input disabled="" type="checkbox">  两种基本类型的存储器：RAM和ROM。</p>
+</li>
+<li><p><strong>存储器分层结构系统基本类型包括：寄存器，高速缓存，主存储器和辅助存储器。</strong></p>
+</li>
+<li><p><input disabled="" type="checkbox">  Hit（命中）-CPU请求的数据就驻留在要访问的存储器层中。</p>
+<p> Miss（缺失）-CPU请求的数据不在要访问的存储器层。</p>
+<p> Hit rate（命中率）-访问某个特定的存储器层是，CPU找到所需数据的百分比。</p>
+<p> Miss rate（缺失率）-访问某个特定的存储器层是，CPU找不到所需的数据百分比</p>
+</li>
+<li><p><input disabled="" type="checkbox">  Miss penalty（缺失损失）-CPU处理一次缺失时间所需要的时间，其中包括利用新的数据取代上层存储器中的某个数据块所需要的时间，再加上将所需数据传送给处理器所需要的附加时间。</p>
+</li>
+<li><p><input disabled="" type="checkbox">  引用的局部性（locality ofreference）：计算机程序对存储器的引用常常会有集中成组成簇的形式。</p>
+</li>
+<li><p><strong>时间局部性temporal locality：最近访问过的内容很可能在不就的将来再次被访问。空间局部性spatial：对存储器地址空间的访问形成团簇的集中倾向。顺序局部性sequential：访问存取器的指令倾向于按顺序执行</strong></p>
+</li>
+<li><p><strong>局部性原理使系统有机会试用少量的速度非常快的存储器来有效加速对系统中主要的存储器的访问。</strong></p>
+</li>
+<li><p><strong>三种高速缓存映射模式：①直接映射的高速缓存：采用模块方式来指定高速缓存和主存储器之间的映射关系。②全关联高速缓存：主存储器中的每个数据块都映射到高速缓存中指定的存储单元位置。③组关联高速缓存：使用地址将主存储器中的数据映射到高速缓存中的摸个指定的存储单元。映射到由几个高速缓存快组成的某个块中。</strong></p>
+</li>
+<li><p><strong>脏块（dirty block）：高速缓存中的脏块是指已经被修改过的数据块。</strong></p>
+</li>
+<li><p><strong>域的划分：字域：用来唯一的识别和确定来自摸个指定的数据块中的一个数据字。块域：(block)必须选择一个唯一的告诉缓存快。标记域（tag）：通过标记可以唯一识别和确定一个数据块</strong></p>
+</li>
+<li><p><input disabled="" type="checkbox">  有效存取时间effective accesstime，EAT是使用命中率与相连存储器层次的相对访问时间产生的加权平均。</p>
+</li>
+<li><p><input disabled="" type="checkbox">  虚拟地址（virtual address）–进程所使用的逻辑地址或程序地址。只要CPU生成一个地址就总对应虚拟地址空间。</p>
+</li>
+<li><p><input disabled="" type="checkbox">  物理地址（physical address）–物理存储器的实际地址</p>
+</li>
+<li><p><input disabled="" type="checkbox">  映射（mapping）–一种地址变换机制，通过映射可以将虚拟地址转换成物理地址。这类似与高速缓存映射。页帧（pageframe）–由主存储器分成的相等大小的信息块或数据块。</p>
+</li>
+<li><p><input disabled="" type="checkbox">  页（pages）–由虚拟存储器划分成的信息块或数据块。</p>
+</li>
+<li><p><input disabled="" type="checkbox">  分页（paging）–将一个虚拟页从硬盘复制到主存储器的某个页帧的过程。</p>
+</li>
+<li><p><input disabled="" type="checkbox">  存储碎片（fragmentation）–变得不能用的存储器单元。</p>
+</li>
+<li><p><input disabled="" type="checkbox">  缺页（page fault）–当一个请求页在主存储器中没有占到是所发生的事件，必须将请求页从硬盘复制到存储器</p>
+</li>
+</ul>
+<hr>
+<h2 id="第七章-2-5-15-17"><a href="#第七章-2-5-15-17" class="headerlink" title="第七章$2,5,15,17$"></a>第七章$2,5,15,17$</h2><ul>
+<li><input disabled="" type="checkbox"> <strong>Amdahl定律:计算机系统整体性能的速度提升取决于某个特定部件本身的加速率和该部件在系统中的使用率。S=1/(1-f)+f/k其中S代表系统整体性能的加速率f表示较快部件完成的工作时间k是新部件的加速率.Amdahl定律告诉了我们什么：只有当使用最频繁的部件的性能得到改进时。系统性能才有可能实现重大改进</strong></li>
+<li><input disabled="" type="checkbox"> I/O的四种控制方式：程序控制的I/O，中断控制的I/O，直接存储取，通道控制的I/O。</li>
+<li><input disabled="" type="checkbox"> <strong>Speedup（加速率）：计算机系统整体性能的速度提升</strong></li>
+<li><input disabled="" type="checkbox"> <strong>程序控制的I/O与中断控制的I/O的区别：程序控制的I/O需要持续的查询其附属设备是否有任何输入请求。而中断控制的I/O与其正好相反，而是在有数据发送需求时由外部设备来通知CPU。程序控制的I/O每次传输一个字节。中断控制的I/O每次可以按一个字节或者是小数据快的形式来处理数据</strong></li>
+<li><input disabled="" type="checkbox"> <strong>DMA：一个设备接口试图通过总线直接向另一个设备发送数据(一般是大批量的数据)，会先向CPU发送DMA请求信号。外设通过DMA的一种专门接口电路――DMA控制器（DMAC），向CPU提出接管总线控制权的总线请求，CPU收到该信号后，在当前的总线周期结束后，会按DMA信号的优先级和提出DMA请求的先后顺序响应DMA信号。CPU对某个设备接口响应DMA请求时，会让出总线控制权。于是在DMA控制器的管理下，外设和存储器直接进行数据交换，而不需CPU干预。数据传送完毕后，设备接口会向CPU发送DMA结束信号，交还总线控制权</strong></li>
+<li><input disabled="" type="checkbox"> <strong>通道控制的I/O与中断控制的I/O有什么不同：中断控制的I/O每次传输一个字节，而通道控制的I/O只是在一组字节的传输完成或者失败后才会中断CPU.而且中断控制的I/O只需要很少的CPU大部分大型计算机都采用I/O通道的智能型DMA接口</strong></li>
+<li><input disabled="" type="checkbox"> 寻道时间：是指磁盘驱动臂定位到指定的磁道上所需要的时间</li>
+<li><input disabled="" type="checkbox"> 旋转延迟：读写头定位到指定的扇区上方所需的时间</li>
+<li><input disabled="" type="checkbox"> 旋转延迟和寻道时间的总和叫什么：存取时间</li>
+</ul>
+<hr>
+<h2 id="第八章-2，13-19"><a href="#第八章-2，13-19" class="headerlink" title="第八章$2，13,19$"></a>第八章$2，13,19$</h2><ul>
+<li><input disabled="" type="checkbox"> <strong>操作系统两个核心组件：内核（Kernel）和系统程序</strong></li>
+<li><input disabled="" type="checkbox"> <strong>占先调度（preemptive scheduling）：如果系统设置分时间段使用的，则该进程有可能被操作系统从一个正在运行的状态转移到另一个等待状态。</strong></li>
+<li><input disabled="" type="checkbox"> <strong>编译语言的优点：具有较快的执行速度，不会延期。出错检查在进行源程序级的调试时，选择解释语言更加适合初学者。</strong></li>
+</ul>
+<hr>
+<h2 id="第九章-8-12-18-25"><a href="#第九章-8-12-18-25" class="headerlink" title="第九章$8,12,18,25$"></a>第九章$8,12,18,25$</h2><ul>
+<li><input disabled="" type="checkbox"> <strong>FLYNN分类方法：主要考虑两大因素：指令的数目和流入处理器的数据流的数目。这就提供了4种SISD(单指令流，单数据流) SIMD(单指令流，多数据流) MISD (多指令流，单数据流)MIMD(多指令流，多数据流)</strong></li>
+</ul>
+<hr>
+<h2 id="第十章"><a href="#第十章" class="headerlink" title="第十章"></a>第十章</h2><ul>
+<li><input disabled="" type="checkbox"> CPU优化–最大限度的提高CPU所执行的各种操作的速度和效率。</li>
+<li><input disabled="" type="checkbox"> 存储器优化–最大幅度地提升代码的存储器管理的效率</li>
+<li><input disabled="" type="checkbox"> I/O优化–最大限度地增强输入输出操作的效率</li>
+</ul>
+<p>​                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://example.com/2020/09/07/architecture/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2020/09/07/architecture/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Jerry's blog
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="jerry elementary life discovery" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 5.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Jerry</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Algorithm/">Algorithm</a></li><li><a class="category-link" href="/categories/Operate-System/">Operate System</a></li><li><a class="category-link" href="/categories/Software-Engineer/">Software Engineer</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="Introduction">
+		                Introduction
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="相册">
+		                相册
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="Tags">
+		                Tags
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/jerryyummy" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://s1.ax1x.com/2020/10/14/0I79hR.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >操作系统学习笔记（随时更新）</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><ol>
+<li><h2 id="计算机基本构成："><a href="#计算机基本构成：" class="headerlink" title="计算机基本构成："></a>计算机基本构成：</h2><p>处理器：当只有一个处理器，特指CPU</p>
+<p>内存：存储数据和程序，易失性存储器</p>
+<p>输入输出模块：在计算机和外部环境之间移动数据</p>
+<p>系统总线：在上述三者提供通讯的设施</p>
+</li>
+<li><h2 id="中断："><a href="#中断：" class="headerlink" title="中断："></a>中断：</h2><p>程序中断，时钟中断，IO中断，硬件失效中断</p>
+<p><em>中断可在主程序任何位置发生而非仅在一条特定指令处发生</em></p>
+<p>多个中断的处理：禁止再次中断；定义中断优先级</p>
+</li>
+<li><h2 id="存储器的层次结构："><a href="#存储器的层次结构：" class="headerlink" title="存储器的层次结构："></a>存储器的层次结构：</h2><p>寄存器&gt;cache&gt;内存&gt;硬盘&gt;磁带</p>
+</li>
+<li><h2 id="执行IO操作技术："><a href="#执行IO操作技术：" class="headerlink" title="执行IO操作技术："></a>执行IO操作技术：</h2><p>可编程I/O操作；中断驱动I/O；DMA</p>
+</li>
+</ol>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><ol>
+<li><h2 id="操作系统的定义："><a href="#操作系统的定义：" class="headerlink" title="操作系统的定义："></a>操作系统的定义：</h2><p>控制应用程序执行的程序，应用和硬件之间充当接口的程序；负责管理资源，跟计算机软件一样执行的程序（最大的软件程序）</p>
+</li>
+<li><h2 id="操作系统的优点："><a href="#操作系统的优点：" class="headerlink" title="操作系统的优点："></a>操作系统的优点：</h2><p>方便（user/computer interface),有效（resource manager),可拓展（system software)</p>
+</li>
+<li><h2 id="evolution-of-os"><a href="#evolution-of-os" class="headerlink" title="evolution of os:"></a>evolution of os:</h2></li>
+</ol>
+<blockquote>
+<p>serial processing（没有操作系统，程序员直接跟硬件打交道）;</p>
+</blockquote>
+<blockquote>
+<p>simple batch systems（用户不用直接跟硬件打交道，有一个monitor）;在内存一次只执行一个工作，处理器必须等待I/O指令</p>
+</blockquote>
+<blockquote>
+<p>multiprogrammed batch systems; 多个程序驻扎在内存，当前一个任务尚未执行完，但在等待IO时，下一个任务可以先使用CPU，相当于程序1虽然整体任务没有完成，但等待IO使得它主动让出CPU给程序2，和简单批处理不同，简单批处理需要前一个任务执行完毕。等IO中断返回，则第一个任务继续执行。</p>
+<p>问题：如何管理多个程序的切换</p>
+<p>When one job needs to wait for I/O, the processor can switch to the other job</p>
+</blockquote>
+<blockquote>
+<p>time-sharing system;和多道程序不同，即便第一个程序正在使用CPU，而非等待IO，后续程序也可以以时间片来轮换使用CPU，相当于程序1被动出让CPU</p>
+</blockquote>
+<blockquote>
+<p>-&gt; 易用性GUI -&gt; 分布式系统 -&gt; 服务云计算，大数据</p>
+</blockquote>
+<ol start="4">
+<li><h2 id="进程：（被认为是一个数据结构）"><a href="#进程：（被认为是一个数据结构）" class="headerlink" title="进程：（被认为是一个数据结构）"></a>进程：（被认为是一个数据结构）</h2><p>–An executable program /code</p>
+<p>–Associated data needed by the program</p>
+<p>–Execution context of the program (the core)</p>
+<p>•All information the operating system needs to manage the process</p>
+</li>
+<li><h2 id="内存管理："><a href="#内存管理：" class="headerlink" title="内存管理："></a>内存管理：</h2><p>•OS has five storage management responsibilities:</p>
+<p>–Process isolation(进程隔离)</p>
+<p>–Automatic allocation and management(自动分配和管理)</p>
+<p>–Support of modular programming(模块化程序设计)</p>
+<p>–Protection and access control (保护与存取控制)</p>
+<p>–Long-term storage(长期存储)</p>
+</li>
+</ol>
+<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><ol>
+<li><h2 id="进程的组成："><a href="#进程的组成：" class="headerlink" title="进程的组成："></a>进程的组成：</h2></li>
+</ol>
+<p>程序代码，与代码相关联的数据集，进程控制块</p>
+<ol start="2">
+<li><h2 id="进程的创建：新的批处理作业，交互登录，为提供服务而由操作系统创建，由现有进程派生"><a href="#进程的创建：新的批处理作业，交互登录，为提供服务而由操作系统创建，由现有进程派生" class="headerlink" title="进程的创建：新的批处理作业，交互登录，为提供服务而由操作系统创建，由现有进程派生"></a>进程的创建：新的批处理作业，交互登录，为提供服务而由操作系统创建，由现有进程派生</h2></li>
+<li><h2 id="进程的终止："><a href="#进程的终止：" class="headerlink" title="进程的终止："></a>进程的终止：</h2><p>•Errors</p>
+<p>–Data/protection/mem failure/illegal behavior</p>
+<p>•By Parents process</p>
+<p>•Normal completion</p>
+</li>
+<li><h2 id="进程状态："><a href="#进程状态：" class="headerlink" title="进程状态："></a>进程状态：</h2><p>![image-20201005120608116](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005120608116.png)</p>
+</li>
+<li><h2 id="suspended-process："><a href="#suspended-process：" class="headerlink" title="suspended process："></a>suspended process：</h2><ul>
+<li><p>程运行的比I/O快，进程需要等待I/O</p>
+</li>
+<li><p>Swap these processes to disk to free up more memory把进程交换到磁盘换取更多内存空间</p>
+</li>
+<li><p>•Blocked state becomes suspend state when swapped to disk</p>
+<p>![image-20201005121753010](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005121753010.png)</p>
+</li>
+</ul>
+<ol start="6">
+<li><h2 id="os-control-structures"><a href="#os-control-structures" class="headerlink" title="os control structures"></a>os control structures</h2><p>•Information about the current status of each process and resource (每个进程和资源的当前状态)</p>
+<p>•Tables are constructed for manage 4 kinds of resources (操作系统构造并维护他所管理的四类资源实体的信息表)</p>
+<p>![image-20201005122741899](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005122741899.png)</p>
+<blockquote>
+<p>memory tables</p>
+<blockquote>
+<p>–Allocation of main memory to processes (分配给进程的主存)</p>
+<p>–Allocation of secondary memory to processes (分配给进程的辅存)</p>
+<p>–Protection attributes for access to shared memory regions(共享内存区域的保护属性)</p>
+<p>–Information needed to manage virtual memory(虚拟内存的管理信息)</p>
+</blockquote>
+<p>I/O tables</p>
+<blockquote>
+<p>–I/O device is available or assigned(分配状态)</p>
+<p>–Status of I/O operation </p>
+<p>–Location in main memory being used as the source or destination of the I/O transfer (数据传送的源和目的地址)</p>
+</blockquote>
+<p>file tables(比如读写问题，需要知道文件当前的状态)</p>
+<blockquote>
+<p>–Existence of files</p>
+<p>–Location on secondary memory</p>
+<p>–Current Status</p>
+<p>–Attributes</p>
+</blockquote>
+</blockquote>
+</li>
+<li><h2 id="process-control-structures"><a href="#process-control-structures" class="headerlink" title="process control structures"></a>process control structures</h2><blockquote>
+<p>process image</p>
+<blockquote>
+<p>用户数据：用户空间中的可修改部分</p>
+<p>用户程序：待执行的程序</p>
+<p>栈：栈用于保存参数，过程调用地址和系统调用地址</p>
+<p>进程控制块：进程标识符（唯一），处理器状态信息，进程控制信息</p>
+</blockquote>
+</blockquote>
+</li>
+<li><h2 id="process-control"><a href="#process-control" class="headerlink" title="process control"></a>process control</h2><blockquote>
+<p>执行模式：用户模式，内核模式</p>
+</blockquote>
+<blockquote>
+<p>进程创建过程：分配进程标识符-&gt;allocate space for this process-&gt;initialize process control block-&gt;set up appropriate linkages-&gt;扩充其他数据结构</p>
+</blockquote>
+<blockquote>
+<p>进程切换</p>
+<ol>
+<li>Interrupt:•Clock interrupt •I/O interrupt •Memory fault</li>
+<li>trap</li>
+<li>supervisor call</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>进程状态的变化：保存处理器上下文-&gt;更新处于运行态进程的pcb，修改进程状态-&gt;把pcb移到相应队列-&gt;选择另一个进程执行-&gt;更新所选进程的pcb，把状态改为运行态-&gt;更新内存管理数据结构-&gt;5.Restore context of the selected process</p>
+</blockquote>
+</li>
+<li><h2 id="操作系统的执行："><a href="#操作系统的执行：" class="headerlink" title="操作系统的执行："></a>操作系统的执行：</h2><ol>
+<li><p>无进程内核</p>
+<p>–Execute kernel outside of any process</p>
+<p>–Operating system code is executed as a separate entity that operates in privileged mode</p>
+<p>![image-20201005145831125](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005145831125.png)</p>
+</li>
+<li><p>在用户程序中运行</p>
+<p>–Operating system software within context of a user process</p>
+<p>–Process executes in privileged mode when executing operating system code</p>
+<p>![image-20201005145918053](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005145918053.png)</p>
+</li>
+<li><p>基于进程的os</p>
+<p>–Implement operating system as a collection of system processes</p>
+<p>–Useful in multi-processor or multi-computer environment</p>
+<p>![image-20201005150046166](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005150046166.png)</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><ol>
+<li>进程与线程</li>
+</ol>
+<p>•Dispatching is referred to as a thread or lightweight process(调度的单位称为线程或轻量进程)</p>
+<p>•Resource of ownership is referred to as a process or task(资源所有权的单位称为进程或者任务)</p>
+<ol start="2">
+<li>•Each thread has:</li>
+</ol>
+<p>–An execution state (running, ready, etc.)</p>
+<p>–Saved thread context when not running</p>
+<p>–Has an execution stack</p>
+<p>–Some per-thread static storage for local variables（局部变量）</p>
+<p>–Access to the memory and resources of its process （全局变量）</p>
+<p>进程中的所有线程共享该进程的状态和资源</p>
+<img src="C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005183502682.png" alt="image-20201005183502682" style="zoom: 80%;" />
+
+
+
+<ol start="3">
+<li>线程的优点：</li>
+</ol>
+<ul>
+<li>创建线程时间短</li>
+<li>终止进程花费时间少</li>
+<li>同一进程间线程切换时间小于进程切换时间</li>
+<li>线程提高了不同执行程序之间通信的效率</li>
+</ul>
+<ol start="4">
+<li><p>线程状态：运行，就绪，阻塞</p>
+<ul>
+<li>线程状态改变相关操作</li>
+</ul>
+<p>–Spawn(派生)</p>
+<p>•Spawn another thread</p>
+<p>–Block(阻塞)</p>
+<p>–Unblock(解除阻塞)</p>
+<p>–Finish</p>
+<p>•Deallocate register context and stacks</p>
+</li>
+<li><p>线程的分类</p>
+<blockquote>
+<p>User-leveI introduction:</p>
+<blockquote>
+<p>Multithread implemented by a threads library</p>
+<p>•All thread management is done by the application</p>
+<p>•The kernel is not aware of the existence of threads &amp; scheduling is done on a process basis</p>
+<p>![image-20201005191741915](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005191741915.png)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Kernel-Level Thread</p>
+<blockquote>
+<p>•Kernel maintains context information for the process and the threads</p>
+<p>•Scheduling is done on a thread basis</p>
+<p>![image-20201005192041914](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005192041914.png)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Combined Approaches</p>
+<blockquote>
+<p>•Thread creation done in the user space</p>
+<p>•Bulk of scheduling and synchronization of threads within application</p>
+<p>•The multiple ULTs from a single application are mapped onto some (smaller or equal) number of KLTs</p>
+<p>•One threads blocked cannot make the process blocked</p>
+<p>![image-20201005192508183](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005192508183.png)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Other Arrangements</p>
+<blockquote>
+<p>![image-20201005192543789](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005192543789.png)</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>Advantages of ULT to KLT</p>
+<p>•Less overhead of thread switches(mode switches do not required) 节省两次状态转换的开销</p>
+<p>•Scheduling can be application specific可以为应用程序量身定做调度算法</p>
+<p>•ULTs can run on any operating system</p>
+</li>
+<li><p>Disadvantages of ULT to KLT</p>
+<p>•One thread is blocked, all other threads of the process are blocked</p>
+<p>•A multithreaded application cannot take advantage of multiprocessing（线程不能分配到多核）</p>
+<p>•Ways to work around these drawbacks:</p>
+<p>–Multiple processes（用多进程代替多线程）</p>
+<p>–Jacketing套管：把一个产生阻塞的系统调用转换成一个非阻塞的系统调用</p>
+</li>
+<li><p>Advantages of KLT to ULT</p>
+<p>–Multiple threads in one process can simultaneously run on multiple processors（多CPU执行）</p>
+<p>–One threads blocked cannot make the other threads within the same process blocked（仅阻塞单个线程）</p>
+<p>–Kernel routines themselves can be multithreaded</p>
+</li>
+<li><p>Disadvantages of KLT to ULT</p>
+<p>•The principal disadvantage is that thread switch requires mode switches(模式切换) to the kernel</p>
+</li>
+</ol>
+<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><p>1.并发原理</p>
+<ul>
+<li><p>竞争条件发生在当多个进程或者线程在读写数据时，其最终结果依赖于多个进程或线程的指令执行顺序</p>
+</li>
+<li><p>![image-20201009225936916](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201009225936916.png)</p>
+</li>
+<li><p>进程的交互</p>
+</li>
+</ul>
+<p>![image-20201009230123332](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201009230123332.png)</p>
+<ul>
+<li><p>•Difficulties of Concurrency</p>
+<p>–Sharing of global resources</p>
+<p>–Operating system managing the allocation of resources optimally</p>
+<p>–Difficult to locate programming errors</p>
+</li>
+<li><p>互斥的要求</p>
+<p>1.一次只允许一个进程进入临界区，忙则等待</p>
+<p>2.阻塞于临界区之外的进程不能干涉其他进程</p>
+<p>3.不会发生饥饿和死锁</p>
+<p>4.没有进程在临界区时，任何需要进入临界区的进程必须能够立即进入</p>
+<p>5.对相关进程的执行速度和处理器数目没有要求</p>
+<p>6.有限占用临界区</p>
+</li>
+</ul>
+<p>2.硬件支持互斥</p>
+<ol>
+<li><p>中断禁用</p>
+<p>![image-20201009231253835](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201009231253835.png)</p>
+<p>执行效率明显降低，不适用于多处理器体系结构</p>
+</li>
+<li><p>专用机器指令</p>
+<ul>
+<li><p>Advantages</p>
+<p>–By sharing main memory，it is applicable to any number of processes </p>
+<p>–It is simple and therefore easy to verify</p>
+<p>–It can be used to support multiple critical sections 支持多个临界区，每个临界区都可以用他自己的变量定义</p>
+</li>
+<li><p>•Disadvantages</p>
+<p>–Busy-waiting(忙等待) consumes processor time</p>
+<p>–Starvation(饥饿) is possible when a process leaves a critical section and more than one process is waiting. </p>
+<p>–Deadlock (死锁) is possible</p>
+<p>•If a low priority process has the critical region and a higher priority process needs, the higher priority process will obtain the processor to wait for the critical region</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>3.软件支持互斥</p>
+<ol>
+<li><p>Dekker</p>
+<p>![image-20201009232841291](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201009232841291.png)</p>
+</li>
+<li><p>Peterson</p>
+<img src="C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201014102428828.png" alt="image-20201014102428828"  />
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>信号量（<strong>Semaphores</strong>）</p>
+<ul>
+<li><p>基本原理：两个或者多个进程可以通过简单的信号进行合作，一个进程可以被迫在一个位置停止，直到它收到一个信号</p>
+</li>
+<li><p>•For signaling, special variables called <strong>semaphores</strong> are used(一种称为<em>信号量</em>的特殊变量用来传递信号)，•If a process is <strong>waiting</strong> for a signal, it is <strong>blocked</strong> until that signal is <strong>sent</strong> (如果一个进程在等待一个信号，它会被阻塞，直到它等待的信号被发出）</p>
+</li>
+<li><p>•Semaphore : <strong>sem**</strong>变量** <strong>+ 2 atomic operations**</strong>原子操作**</p>
+<blockquote>
+<p>–<strong>Sem</strong>(integer value整数值) </p>
+<p>①**semWait (P)**：</p>
+<blockquote>
+<p>①–sem</p>
+</blockquote>
+<blockquote>
+<p>②If sem &lt; 0, the process executing the semWait is blocked.</p>
+</blockquote>
+<blockquote>
+<p>③else , process continue execute </p>
+</blockquote>
+<p>①**semSignal (V)**：</p>
+<blockquote>
+<p>①++sem</p>
+</blockquote>
+<blockquote>
+<p>②If sem&gt;=0, then a process blocked by a semWait operation, if any, is unblocked.</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://example.com/2020/09/14/operate%20system/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2020/09/14/operate%20system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
