@@ -139,24 +139,48 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Hello World</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://s1.ax1x.com/2020/10/14/0I7i1x.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >master定理-计算递归方程算法复杂度</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <p><strong>T*(<em>n</em>)=*a</strong>T*(<em>n</em>/b)+<em>f</em>(*n)</p>
+<p><em>C<strong>c</strong>r<strong>i</strong>t</em>=<em>l<strong>o</strong>g<strong>b</strong>a</em></p>
+<p>1.</p>
+<blockquote>
+<ul>
+<li>当$f(n)=O(n^c)，且，且c&lt;c_{crit}时有：时有：T(n)=\Theta(n{c_{crit}})$</li>
+<li>例子：</li>
+<li>$T(n)=8T(\frac{n}{2})+1000n^2$</li>
+<li>此时a=8,b=2,f(n)=1000n^2^</li>
+<li>当c=2时，f(n)=O(n^2^)</li>
+<li>又因为Ccrit=log<del>b</del>a=3&gt;c</li>
+<li>所以$T(n)=\Theta(n{log_ba})=\Theta(n3)$</li>
+</ul>
+</blockquote>
+<p>2.</p>
+<blockquote>
+<ul>
+<li>当f(n)=<em>O</em>(<em>n</em> ^c^)，且c&gt;C<del>crit</del>时有：T(n)=Θ(f(n))</li>
+<li>例子：</li>
+<li>T(n)=2<em>T</em>(<em>n</em>/2)+<em>n</em>^2^</li>
+<li>此时a=2,b=2,<em>f</em>(<em>n</em>)=<em>n</em> ^2^</li>
+<li>当c=2时，f*(<em>n</em>)=<em>O</em>(*n^2^)</li>
+<li>又因为C<del>crit</del>=log<del>b</del>a=1&lt;<em>c</em></li>
+<li>所以T(n)=Θ(f(n))=Θ(n^2^)</li>
+</ul>
+</blockquote>
+<p>3.</p>
+<blockquote>
+<ul>
+<li>当f(n)=<em>O</em>(<em>n</em> ^c^)，且c=C<del>crit</del>时有：$T(n)=\Theta(n{c_{crit}}logn)$</li>
+<li>例子：</li>
+<li>T(n)=2<em>T</em>(<em>n</em>/2)+10<em>n</em></li>
+<li>此时a=2,b=2,f(n)=10n，Ccrit=log<del>b</del>a=1</li>
+<li>当k=0时$f(n)=\Theta(n1log0n)=\Theta(n)$</li>
+<li>所以$T(n)=\Theta(n1log1n)=\Theta(nlogn)$</li>
+</ul>
+</blockquote>
 
             </div>
 
@@ -219,8 +243,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2020/10/11/hello-world/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2020/10/11/hello-world/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2017/09/27/master/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2017/09/27/master/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
