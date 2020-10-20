@@ -144,7 +144,8 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><ol>
+                <p>[toc]</p>
+<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><ol>
 <li><h2 id="计算机基本构成："><a href="#计算机基本构成：" class="headerlink" title="计算机基本构成："></a>计算机基本构成：</h2><p>处理器：当只有一个处理器，特指CPU</p>
 <p>内存：存储数据和程序，易失性存储器</p>
 <p>输入输出模块：在计算机和外部环境之间移动数据</p>
@@ -464,7 +465,7 @@
 <p>①–sem</p>
 </blockquote>
 <blockquote>
-<p>②If sem &lt; 0, the process executing the semWait is blocked.</p>
+<p>②If sem &lt; 0, the process executing the semWait is blocked.如果sem &lt; 0，则执行semWait的进程被阻塞</p>
 </blockquote>
 <blockquote>
 <p>③else , process continue execute </p>
@@ -474,11 +475,82 @@
 <p>①++sem</p>
 </blockquote>
 <blockquote>
-<p>②If sem&gt;=0, then a process blocked by a semWait operation, if any, is unblocked.</p>
+<p>②If sem&gt;=0, then a process blocked by a semWait operation, if any, is unblocked.如果sem&gt;=0，那么被semWait操作阻塞的进程(如果有的话)被解除阻塞</p>
 </blockquote>
 </blockquote>
 </li>
+<li><p>信号量操作的实现（操作是原子操作）：</p>
+<ol>
+<li>在硬件或固件中实现</li>
+<li>用软件实现，如Dekker或Peterson</li>
+<li>在单处理器系统中通过禁止中断来实现</li>
+</ol>
+</li>
+<li><p>信号量的应用：</p>
+<ol>
+<li><p>Mutual Exclusion互斥</p>
+<blockquote>
+<p>![image-20201017181826288](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201017181826288.png)</p>
+<p><strong>当用于两个线程互斥，信号量初始值为</strong>1</p>
+<p><strong>二元信号量与互斥锁的区别</strong></p>
+<blockquote>
+<p>互斥锁的上锁和解锁只能在同一个线程和进程调用；信号量的semWait和semSignal操作可以在不同的进程中调用</p>
+</blockquote>
+</blockquote>
+<p>–One sem releases one information 一个信号量释放一个类型的信息</p>
+<p>–Semaphore initialized to n: sem = n(已经有n个线程在等待进入临界区)</p>
+<p>​    •n is the number of processes permit to enter; in another words: n processes is allowerd in its     critical section at a time(多个进程同时在临界区内)</p>
+<p>​    •n=0, 同步问题(生产者/消费者问题)</p>
+<p>​    •n=1，互斥问题(-m表示m个线程在等待)</p>
+<p>​        &gt; 二元信号量，2个线程互斥</p>
+<p>​        &gt;  计数信号量，K(k&gt;2)个线程互斥</p>
+<p>​    •n&gt;1, 同步互斥(读写者问题)</p>
+</li>
+<li><p>The Producer/Consumer Problem</p>
+<p>![image-20201017185623518](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201017185623518.png)</p>
+<p>another example <strong>with Circular Buffer</strong>：</p>
+<p>![image-20201017185757813](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201017185757813.png)</p>
+<p><strong>producer:</strong></p>
+<p><strong>while (true) {</strong></p>
+<p> <strong>/* produce item v */</strong></p>
+<p> <strong>while (**</strong>(in + 1) % n** <strong>== out)</strong>  </p>
+<p>​        <strong>/* do nothing */;</strong></p>
+<p> <strong>b[in] = v;</strong></p>
+<p> <strong>in = (in + 1) % n</strong></p>
+<p><strong>}</strong></p>
+<p><strong>consumer:</strong></p>
+<p><strong>while (true) {</strong></p>
+<p> <strong>while (**</strong>in == out**<strong>)</strong></p>
+<p> <strong>/* do nothing */;</strong></p>
+<p> <strong>w = b[out];</strong></p>
+<p> <strong>out = (out + 1) % n;</strong></p>
+<p> <strong>/* consume item w */</strong></p>
+<p><strong>}</strong></p>
+</li>
+</ol>
+</li>
 </ul>
+</li>
+<li><p>Monitors（管程）</p>
+<p>![image-20201017190525334](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201017190525334.png)</p>
+<blockquote>
+<p>定义：–Monitor is a software module consisting of one or more procedures, an initialization sequence, and local data(管程由一个或者多个过程、一段初始化代码和局部数据组成的软件模块).</p>
+</blockquote>
+<blockquote>
+<p>the chief characteristics :</p>
+<ol>
+<li>–Local data variables are accessible only by the monitor 本地数据只能由监视器访问</li>
+<li>–Process enters monitor by invoking one of its procedures 进程调用管程函数即进入管程</li>
+<li>–Only one process may be executing in the monitor at a time</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>管程的互斥机制：管程中的数据变量一次只能被一个进程访问</p>
+<p>管程的同步机制：使用条件变量 cwait(c),csignal(c),如果管程中的一个进程发信号，但没有在这个条件变量上等待的任务，则丢弃这个信号。</p>
+</blockquote>
+<blockquote>
+<p>管程优于信号量之处：所有的同步机制都被限制在管程内部，易于验证同步的正确性，还易于检测错误；若一个管程被正确的编写，所有进程对受保护资源的访问都是正确的，而对于信号量需要访问资源的所有进程都被正确的编写</p>
+</blockquote>
 </li>
 </ol>
 
