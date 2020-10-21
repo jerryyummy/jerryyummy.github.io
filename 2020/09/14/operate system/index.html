@@ -209,7 +209,7 @@
 <p>•By Parents process</p>
 <p>•Normal completion</p>
 </li>
-<li><h2 id="进程状态："><a href="#进程状态：" class="headerlink" title="进程状态："></a>进程状态：</h2><p>![image-20201005120608116](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005120608116.png)</p>
+<li><h2 id="进程状态："><a href="#进程状态：" class="headerlink" title="进程状态："></a>进程状态：</h2><p><img src="https://s1.ax1x.com/2020/10/21/B9YQGq.png" alt="B9YQGq.png"></p>
 </li>
 <li><h2 id="suspended-process："><a href="#suspended-process：" class="headerlink" title="suspended process："></a>suspended process：</h2><ul>
 <li><p>程运行的比I/O快，进程需要等待I/O</p>
@@ -217,13 +217,13 @@
 <li><p>Swap these processes to disk to free up more memory把进程交换到磁盘换取更多内存空间</p>
 </li>
 <li><p>•Blocked state becomes suspend state when swapped to disk</p>
-<p>![image-20201005121753010](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005121753010.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9YGsU.png" alt="B9YGsU.png"></p>
 </li>
 </ul>
 <ol start="6">
 <li><h2 id="os-control-structures"><a href="#os-control-structures" class="headerlink" title="os control structures"></a>os control structures</h2><p>•Information about the current status of each process and resource (每个进程和资源的当前状态)</p>
 <p>•Tables are constructed for manage 4 kinds of resources (操作系统构造并维护他所管理的四类资源实体的信息表)</p>
-<p>![image-20201005122741899](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005122741899.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9YJLF.png" alt="B9YJLF.png"></p>
 <blockquote>
 <p>memory tables</p>
 <blockquote>
@@ -279,17 +279,17 @@
 <li><p>无进程内核</p>
 <p>–Execute kernel outside of any process</p>
 <p>–Operating system code is executed as a separate entity that operates in privileged mode</p>
-<p>![image-20201005145831125](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005145831125.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9YNdJ.png" alt="B9YNdJ.png"></p>
 </li>
 <li><p>在用户程序中运行</p>
 <p>–Operating system software within context of a user process</p>
 <p>–Process executes in privileged mode when executing operating system code</p>
-<p>![image-20201005145918053](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005145918053.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9YUo9.png" alt="B9YUo9.png"></p>
 </li>
 <li><p>基于进程的os</p>
 <p>–Implement operating system as a collection of system processes</p>
 <p>–Useful in multi-processor or multi-computer environment</p>
-<p>![image-20201005150046166](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005150046166.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9YdiR.png" alt="B9YdiR.png"></p>
 </li>
 </ol>
 </li>
@@ -310,10 +310,7 @@
 <p>–Some per-thread static storage for local variables（局部变量）</p>
 <p>–Access to the memory and resources of its process （全局变量）</p>
 <p>进程中的所有线程共享该进程的状态和资源</p>
-<img src="C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005183502682.png" alt="image-20201005183502682" style="zoom: 80%;" />
-
-
-
+<p><img src="https://s1.ax1x.com/2020/10/21/B9Y0Rx.png" alt="B9Y0Rx.png"></p>
 <ol start="3">
 <li>线程的优点：</li>
 </ol>
@@ -342,7 +339,7 @@
 <p>Multithread implemented by a threads library</p>
 <p>•All thread management is done by the application</p>
 <p>•The kernel is not aware of the existence of threads &amp; scheduling is done on a process basis</p>
-<p>![image-20201005191741915](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005191741915.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9YBz6.png" alt="B9YBz6.png"></p>
 </blockquote>
 </blockquote>
 <blockquote>
@@ -350,7 +347,7 @@
 <blockquote>
 <p>•Kernel maintains context information for the process and the threads</p>
 <p>•Scheduling is done on a thread basis</p>
-<p>![image-20201005192041914](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005192041914.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9Ycee.png" alt="B9Ycee.png"></p>
 </blockquote>
 </blockquote>
 <blockquote>
@@ -360,13 +357,13 @@
 <p>•Bulk of scheduling and synchronization of threads within application</p>
 <p>•The multiple ULTs from a single application are mapped onto some (smaller or equal) number of KLTs</p>
 <p>•One threads blocked cannot make the process blocked</p>
-<p>![image-20201005192508183](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005192508183.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9YgdH.png" alt="B9YgdH.png"></p>
 </blockquote>
 </blockquote>
 <blockquote>
 <p>Other Arrangements</p>
 <blockquote>
-<p>![image-20201005192543789](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201005192543789.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9Y2od.png" alt="B9Y2od.png"></p>
 </blockquote>
 </blockquote>
 </li>
@@ -395,12 +392,12 @@
 <ul>
 <li><p>竞争条件发生在当多个进程或者线程在读写数据时，其最终结果依赖于多个进程或线程的指令执行顺序</p>
 </li>
-<li><p>![image-20201009225936916](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201009225936916.png)</p>
+<li><p><img src="https://s1.ax1x.com/2020/10/21/B9YhWt.png" alt="B9YhWt.png"></p>
 </li>
 <li><p>进程的交互</p>
 </li>
 </ul>
-<p>![image-20201009230123332](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201009230123332.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9Yoy8.png" alt="B9Yoy8.png"></p>
 <ul>
 <li><p>•Difficulties of Concurrency</p>
 <p>–Sharing of global resources</p>
@@ -419,7 +416,7 @@
 <p>2.硬件支持互斥</p>
 <ol>
 <li><p>中断禁用</p>
-<p>![image-20201009231253835](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201009231253835.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9YHeg.png" alt="B9YHeg.png"></p>
 <p>执行效率明显降低，不适用于多处理器体系结构</p>
 </li>
 <li><p>专用机器指令</p>
@@ -441,13 +438,10 @@
 <p>3.软件支持互斥</p>
 <ol>
 <li><p>Dekker</p>
-<p>![image-20201009232841291](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201009232841291.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9Yqoj.png" alt="B9Yqoj.png"></p>
 </li>
 <li><p>Peterson</p>
-<img src="C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201014102428828.png" alt="image-20201014102428828"  />
-
-
-
+<p><img src="https://s1.ax1x.com/2020/10/21/B9YOFs.png" alt="B9YOFs.png"></p>
 </li>
 </ol>
 <ol start="4">
@@ -490,7 +484,7 @@
 <ol>
 <li><p>Mutual Exclusion互斥</p>
 <blockquote>
-<p>![image-20201017181826288](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201017181826288.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9YXYn.png" alt="B9YXYn.png"></p>
 <p><strong>当用于两个线程互斥，信号量初始值为</strong>1</p>
 <p><strong>二元信号量与互斥锁的区别</strong></p>
 <blockquote>
@@ -507,9 +501,9 @@
 <p>​    •n&gt;1, 同步互斥(读写者问题)</p>
 </li>
 <li><p>The Producer/Consumer Problem</p>
-<p>![image-20201017185623518](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201017185623518.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9tSyT.png" alt="B9tSyT.png"></p>
 <p>another example <strong>with Circular Buffer</strong>：</p>
-<p>![image-20201017185757813](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201017185757813.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9tpOU.png" alt="B9tpOU.png"></p>
 <p><strong>producer:</strong></p>
 <p><strong>while (true) {</strong></p>
 <p> <strong>/* produce item v */</strong></p>
@@ -532,7 +526,7 @@
 </ul>
 </li>
 <li><p>Monitors（管程）</p>
-<p>![image-20201017190525334](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201017190525334.png)</p>
+<p><img src="https://s1.ax1x.com/2020/10/21/B9tPw4.png" alt="B9tPw4.png"></p>
 <blockquote>
 <p>定义：–Monitor is a software module consisting of one or more procedures, an initialization sequence, and local data(管程由一个或者多个过程、一段初始化代码和局部数据组成的软件模块).</p>
 </blockquote>
