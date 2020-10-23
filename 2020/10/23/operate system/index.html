@@ -546,6 +546,79 @@
 <p>管程优于信号量之处：所有的同步机制都被限制在管程内部，易于验证同步的正确性，还易于检测错误；若一个管程被正确的编写，所有进程对受保护资源的访问都是正确的，而对于信号量需要访问资源的所有进程都被正确的编写</p>
 </blockquote>
 </li>
+<li><p>消息传递</p>
+<ul>
+<li><p>进程需要同步为了实施互斥，为了合作必须交换信息-&gt; 消息传递（<strong>可以在分布式系统，共享内存的单，多处理器系统中实现</strong>）</p>
+</li>
+<li><p>操作集：</p>
+<p>​    <strong>send (destination, message)</strong></p>
+<p>​    <strong>receive (source, message)</strong></p>
+</li>
+<li><p>同步：sender和receiver都可阻塞或者不阻塞，通常有三种组合</p>
+<ol>
+<li>–Blocking send, blocking receive 都被阻塞知道完成消息的传递</li>
+<li>•Nonblocking send, blocking receive 发送者可以继续但接收者会被阻塞知道消息到达</li>
+<li>•Nonblocking send, nonblocking receive 不要求任何一方等待</li>
+</ol>
+</li>
+<li><p>寻址：确定目标进程和源进程</p>
+<ol>
+<li><p>•Direct addressing</p>
+<p>–Send primitive includes a specific <strong>identifier</strong> of the destination process 发送原语包含目标进程的特定标识符</p>
+<p>–Receive primitive could know ahead of time which process a message is expected or receive primitive could use source parameter to return a value when the receive operation has been performed 接收原语可以提前知道预期哪个处理消息，或者接收原语可以在执行接收操作时使用源参数返回值</p>
+</li>
+<li><p>•Indirect addressing</p>
+<blockquote>
+<p>消息不直接从发送者到接收者，发送到一个临时保存消息的队列（mailbox）组成的共享数据结构，一个进程给合适信箱发消息，另一个从信箱获取消息。</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/10/23/BA9xXt.png" alt="BA9xXt.png"></p>
+<blockquote>
+<p><em>进程和信箱关联可以是静态的或者动态的。端口常常静态关联到一个特定的进程上，也就是被永久地创建并指定。当有很多个发送者时也可以是动态关联的。</em></p>
+</blockquote>
+<blockquote>
+<p>信箱的所有权：对于端口，由接受进程创建并一起销毁；对于通用的信箱，操作系统提供一个创建信箱的服务，由创建信箱的进程所有；由操作系统所有，销毁需要一个显示命令</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>消息格式</p>
+<p><img src="https://s1.ax1x.com/2020/10/23/BACPAS.png" alt="BACPAS.png"></p>
+</li>
+<li><p>互斥使用消息传递</p>
+<p><img src="https://s1.ax1x.com/2020/10/23/BAClh4.png" alt="BAClh4.png"></p>
+<p><img src="https://s1.ax1x.com/2020/10/23/BACJj1.png" alt="BACJj1.png"></p>
+</li>
+<li><p>读写者问题</p>
+<p>条件：任意读进程可以同时读取文件；一次只有一个写进程可以写；如果一个写进程正在写文件，禁止任何读进程读文件</p>
+<p><img src="https://s1.ax1x.com/2020/10/23/BACgDP.png" alt="BACgDP.png"></p>
+<ol>
+<li><p>读者优先</p>
+<p>–Once a single reader has begun to access the data area, it is possible for readers to retain control of the data area as long as there is at least one reader in the act of reading. Therefore, writers are subject to starvation.目前正在读，新的读会持续进入，写会饥饿</p>
+<p><img src="https://s1.ax1x.com/2020/10/23/BAC2Hf.png" alt="BAC2Hf.png"></p>
+<p><strong>优先体现在不需要在writemutex上排队等待</strong></p>
+</li>
+<li><p>写者优先</p>
+<p>–no new readers are allowed access to the data area once at least one writer has declared a desire to write. 当有新的写存在，新的读不能进行读</p>
+<p><img src="https://s1.ax1x.com/2020/10/23/BACcut.png" alt="BACcut.png"></p>
+<p><strong>问题</strong>：1.当目前正在写：新的 读和写同时到达：读写都会在semWait(writemutex)上等待，因此需要竞争进入，不能保证写优先</p>
+<p>2.当前正在读：新的读和写同时到达，写都会在semWait(writemutex)上等待，而读会直接执行readdata();</p>
+<p>因此需要让写排队，故尝试新增readmutex来保证写优先。因此需要一旦有写，阻塞读.</p>
+<p><img src="https://s1.ax1x.com/2020/10/23/BACyjI.png" alt="BACyjI.png"></p>
+<p><strong>问题</strong>：Reader中的semsignal（readmutex）表示本次读已经开始，为下一次写优先释放信号</p>
+<p>​            Reader的semsignal(readmutex)在前，而非函数尾，有利于下一个来的读尽快进入</p>
+<p>假设目前正在写，那么同时来一个写和读，写会在semwait(writemutex)上等待，而读会在            semwait(readmutex)上等待，因此写会先进入</p>
+<p>假设目前正在读，那么同时来一个写和读，第一个写和所有新的读都会在    semwait（readmutex）上等待，需要竞争；另外后续其它写会阻塞在mutex2无法进入临界区，这时无法让写越过后续在semwait（readmutex）上排队的所有的读。</p>
+<p><strong>因为不在readmutex让后续读排长队，从而延迟后续的写，所以新增z，用于读排队</strong></p>
+<p><img src="https://s1.ax1x.com/2020/10/23/BACsgA.png" alt="BACsgA.png"></p>
+<p><strong>问题</strong>：解决了刚才提到的目前正在读情况下，新写和新读中新写无法优先的问题。因为读需要先在z上排队，而写在readmutex排队</p>
+<p>在极端情况下，当前正在读，大量读源源不断的进入，那么就可能阻塞在semwait（readmutex）上，因为太多读，无法及时从该临界区退出。</p>
+<p>这是突然来第一个写，写将阻塞在semwait(readmutex)上，那么就无法保证写优先，因此增加一个z，让读在z上排队，由于z的释放晚于readmutex，那么可以保证写优先。</p>
+<p><strong>读阻塞在z，而z后于readmutex释放，利于写先进入</strong></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
 </ol>
 
             </div>
@@ -609,8 +682,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2020/09/14/operate%20system/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2020/09/14/operate%20system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2020/10/23/operate%20system/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2020/10/23/operate%20system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
