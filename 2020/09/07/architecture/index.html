@@ -333,11 +333,13 @@
 </ul>
 <hr>
 <h2 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h2><ul>
-<li><p><strong>SRAM的速度比DRAM快，但价格更高。主存储器使用DRAM的好处：存储密度高，价格便宜，消耗的功耗低，比SRAM产生的热量小很多</strong></p>
+<li><p><strong>SRAM的速度比DRAM快，但价格更高。主存储器使用DRAM的好处：存储密度高，价格便宜，消耗的功耗低，比SRAM产生的热量小很多，动态RAM（DRAM)由电容器组成，随着时间的推移，电容器会慢慢漏电。因此必须每隔几毫秒刷新一次，以防止数据丢失，SRAM是非常快的内存，它不需要像DRAM一样刷新。它被用来构建高速缓存内存</strong></p>
 </li>
 <li><p><input disabled="" type="checkbox">  两种基本类型的存储器：RAM和ROM。</p>
+<p>SRAM不需要被刷新。</p>
+<p>ROM也不需要刷新。事实上，它只需要很少的电荷就能保留它的内存。ROM是用来存储永久或半永久的数据，即使在系统关闭时仍然存在</p>
 </li>
-<li><p><strong>存储器分层结构系统基本类型包括：寄存器，高速缓存，主存储器和辅助存储器。</strong></p>
+<li><p><strong>存储器分层结构系统基本类型包括：寄存器，高速缓存，主存储器和辅助存储器。</strong>（7层结构）</p>
 </li>
 <li><p><input disabled="" type="checkbox">  Hit（命中）-CPU请求的数据就驻留在要访问的存储器层中。</p>
 <p>Miss（缺失）-CPU请求的数据不在要访问的存储器层。</p>
@@ -346,17 +348,25 @@
 </li>
 <li><p><input disabled="" type="checkbox">  Miss penalty（缺失损失）-CPU处理一次缺失时间所需要的时间，其中包括利用新的数据取代上层存储器中的某个数据块所需要的时间，再加上将所需数据传送给处理器所需要的附加时间。</p>
 </li>
-<li><p><input disabled="" type="checkbox">  引用的局部性（locality ofreference）：计算机程序对存储器的引用常常会有集中成组成簇的形式。</p>
+<li><p><input disabled="" type="checkbox">  引用的局部性（locality of reference）：计算机程序对存储器的引用常常会有集中成组成簇的形式。</p>
 </li>
-<li><p><strong>时间局部性temporal locality：最近访问过的内容很可能在不就的将来再次被访问。空间局部性spatial：对存储器地址空间的访问形成团簇的集中倾向。顺序局部性sequential：访问存取器的指令倾向于按顺序执行</strong></p>
+<li><p><strong>时间局部性temporal locality：最近访问过的内容很可能在不就的将来再次被访问。</strong></p>
+</li>
+<li><p><strong>空间局部性spatial  locality：对存储器地址空间的访问形成团簇的集中倾向。</strong></p>
+</li>
+<li><p><strong>顺序局部性sequential  locality：访问存取器的指令倾向于按顺序执行</strong></p>
 </li>
 <li><p><strong>局部性原理使系统有机会试用少量的速度非常快的存储器来有效加速对系统中主要的存储器的访问。</strong></p>
 </li>
 <li><p><strong>三种高速缓存映射模式：①直接映射的高速缓存：采用模块方式来指定高速缓存和主存储器之间的映射关系。②全关联高速缓存：主存储器中的每个数据块都映射到高速缓存中指定的存储单元位置。③组关联高速缓存：使用地址将主存储器中的数据映射到高速缓存中的摸个指定的存储单元。映射到由几个高速缓存快组成的某个块中。</strong></p>
 </li>
+<li><p><input disabled="" type="checkbox">  直接映射：in a direct mapped cache consisting of N blocks of cache, block X of main memory maps to cache block Y = X mod N，通过一个有效位表示该缓存块是否有效，每一个主存块储存到缓存中都会有tag field进行标识</p>
+<p><img src="https://s1.ax1x.com/2020/10/27/Blrv40.png" alt="Blrv40.png"></p>
+<p>tag:确定是映射主存里的哪个组，block：确定是缓存里块中的哪一位，offset：识别块中的字/字节地址</p>
+</li>
 <li><p><strong>脏块（dirty block）：高速缓存中的脏块是指已经被修改过的数据块。</strong></p>
 </li>
-<li><p><strong>域的划分：字域：用来唯一的识别和确定来自摸个指定的数据块中的一个数据字。块域：(block)必须选择一个唯一的告诉缓存快。标记域（tag）：通过标记可以唯一识别和确定一个数据块</strong></p>
+<li><p><strong>域的划分：字域：用来唯一的识别和确定来自某个指定的数据块中的一个数据字。块域：(block)必须选择一个唯一的高速缓存快。标记域（tag）：通过标记可以唯一识别和确定一个数据块</strong></p>
 </li>
 <li><p><input disabled="" type="checkbox">  有效存取时间effective accesstime，EAT是使用命中率与相连存储器层次的相对访问时间产生的加权平均。</p>
 </li>
@@ -375,7 +385,6 @@
 <li><p><input disabled="" type="checkbox">  缺页（page fault）–当一个请求页在主存储器中没有占到是所发生的事件，必须将请求页从硬盘复制到存储器</p>
 </li>
 </ul>
-<hr>
 <h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><ul>
 <li><input disabled="" type="checkbox"> <strong>Amdahl定律:计算机系统整体性能的速度提升取决于某个特定部件本身的加速率和该部件在系统中的使用率。S=1/(1-f)+f/k其中S代表系统整体性能的加速率f表示较快部件完成的工作时间k是新部件的加速率.Amdahl定律告诉了我们什么：只有当使用最频繁的部件的性能得到改进时。系统性能才有可能实现重大改进</strong></li>
 <li><input disabled="" type="checkbox"> I/O的四种控制方式：程序控制的I/O，中断控制的I/O，直接存储取，通道控制的I/O。</li>
