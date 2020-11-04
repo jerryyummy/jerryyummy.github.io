@@ -620,6 +620,107 @@
 </ul>
 </li>
 </ol>
+<h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><ol>
+<li><p>死锁原理：</p>
+<p>一组相互竞争系统资源或进行通信的进程间的永久阻塞，死锁是永久性的</p>
+<ul>
+<li>可重用资源：一次仅供一个进程安全且不因使用而耗尽的资源。</li>
+<li>可消耗资源：可被创建和销毁的资源，例如中断，信号，消息</li>
+<li>资源分配图：<img src="https://s1.ax1x.com/2020/11/04/BgUGJ1.png" alt="BgUGJ1.png"></li>
+<li>死锁的条件：互斥，占有且等待，不可抢占，循环等待（前三个是必要条件，四个加起来才是充要条件）</li>
+</ul>
+</li>
+<li><p>死锁预防：</p>
+<ul>
+<li><p>互斥：几乎不可能做到，因为操作系统必须支持互斥</p>
+</li>
+<li><p>占有且等待：要求进程一次性请求所有需要的资源，并阻塞这个进程知道所有请求都同时满足，但有3个缺点：<strong>可能被阻塞很长时间</strong>，<strong>分配给这个进程的全部资源不能被立即使用，也不能被其他需要的进程使用</strong>，<strong>一个进程无法预知它需要的资源</strong></p>
+</li>
+<li><p>不可抢占：–if a further request is denied , Process must release resource and request again（释放最初占有的资源）</p>
+<p>Operating system may preempt a process to require it releases its resources(kill the process, higher prority)进程抢占进程</p>
+</li>
+<li><p>循环等待: 通过定义资源类型的线性顺序来预防</p>
+</li>
+</ul>
+</li>
+<li><p>死锁避免：允许三个必要条件，但确保不会到达死锁点</p>
+<ul>
+<li><p>进程启动拒绝：•Do not start a process if its demands might lead to deadlock(如果一个进程的请求会导致死锁，则不启动此进程，<strong>进程启动拒绝</strong>)</p>
+<p><img src="https://s1.ax1x.com/2020/11/04/BgU0dH.png" alt="BgU0dH.png"></p>
+<p>![image-20201028204922144](C:\Users\Jerry Yummy\AppData\Roaming\Typora\typora-user-images\image-20201028204922144.png)</p>
+<p><img src="https://s1.ax1x.com/2020/11/04/BgUyWt.png" alt="BgUyWt.png"></p>
+</li>
+<li><p>资源分配拒绝：the <strong>banker’s algorithm</strong></p>
+<p><img src="https://s1.ax1x.com/2020/11/04/BgUjw4.png" alt="BgUjw4.png"></p>
+<p><img src="https://s1.ax1x.com/2020/11/04/Bgai6K.png" alt="Bgai6K.png"></p>
+<p>确定一个资源分配序列不会导致死锁，进程结束分配给该进程的资源返回available向量中，再寻找下一个符合当前可分配资源的进程</p>
+</li>
+<li><p>Restrictions 限制of Deadlock Avoidance：</p>
+<ol>
+<li>必须事先声明每个进程请求的最大资源</li>
+<li>所讨论的进程必须是无关的，即他们的执行顺序没有同步要求</li>
+<li>分配的资源是固定的</li>
+<li>在占有资源时，进程不能退出</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="4">
+<li><p>死锁检测：</p>
+<ul>
+<li>Recovery Strategies Once Deadlock Detected (死锁检测到后的解锁策略)</li>
+</ul>
+<p>–放弃所有死锁进程</p>
+<p>–将每个死锁进程备份到以前定义的检查点，并重新启动所有进程 </p>
+<ul>
+<li>可能会出现原始死锁</li>
+</ul>
+<p>–连续中止死锁进程，直到死锁不再存在</p>
+<p>–连续抢占资源，直到死锁不再存在</p>
+<ul>
+<li><p>被剥夺或者取消进程的选择标准：</p>
+<p>到目前为止消耗的处理器时间最少；</p>
+<p>到目前为止所产生的输出行数最少；</p>
+<p>最多估计剩余时间；</p>
+<p>迄今为止分配的资源最少；</p>
+<p>最低优先级</p>
+</li>
+</ul>
+</li>
+<li><p>几种策略的优势和缺点：</p>
+</li>
+<li><p>一种综合死锁策略：</p>
+<p>将资源分组到许多不同的资源类中；</p>
+<p>使用前面定义的防止循环等待的线性排序策略来防止资源类之间的死锁；</p>
+<p>Within a resource class, use the algorithm that is most appropriate for that class(每个类中使用适合于该类的策略)；</p>
+<p>Mem: page/segment, 置换到辅存</p>
+<p>内部资源： 排序</p>
+</li>
+<li><p>哲学家就餐问题：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">take_forks</span><span class="params">(<span class="keyword">int</span> id)</span></span>&#123;</span><br><span class="line">    <span class="comment">//获取左右两边的筷子</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Pil[%d], left[%d], right[%d]\n&quot;</span>, id, left(id), right(id));</span><br><span class="line">    pthread_mutex_lock(&amp;forks[left(id)]);</span><br><span class="line">    pthread_mutex_lock(&amp;forks[right(id)]);</span><br><span class="line">    <span class="comment">//printf(&quot;philosopher[%d]  take_forks...\n&quot;, id);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">put_down_forks</span><span class="params">(<span class="keyword">int</span> id)</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;philosopher[%d] is put_down_forks...\n&quot;</span>, id);</span><br><span class="line">    pthread_mutex_unlock(&amp;forks[left(id)]);</span><br><span class="line">    pthread_mutex_unlock(&amp;forks[right(id)]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">philosopher_work</span><span class="params">(<span class="keyword">void</span> *arg)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = *(<span class="keyword">int</span>*)arg;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;philosopher init [%d] \n&quot;</span>, id);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        thinking(id);</span><br><span class="line">        take_forks(id);</span><br><span class="line">        eating(id);</span><br><span class="line">        put_down_forks(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该算法存在以下问题：当五个哲学家都想要进餐，分别拿起他们左边筷子的时候都恰好执行完</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//都恰好执行完</span></span><br><span class="line">pthread_mutex_unlock(&amp;forks[left(id)]);</span><br></pre></td></tr></table></figure>
+
+<p>筷子已经被拿光了，等到他们再想拿右边的筷子的时候</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//执行</span></span><br><span class="line">pthread_mutex_unlock(&amp;forks[right(id)]);</span><br></pre></td></tr></table></figure>
+
+<p>就全被阻塞了，这就出现了死锁。</p>
+<p><strong>解决方案1</strong></p>
+<p>利用信号量的保护机制实现。通过信号量mutex对eat（）之前的取左侧和右侧筷<br>子的操作进行保护，使之成为一个原子操作，这样可以防止死锁的出现</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">philosopher_work</span><span class="params">(<span class="keyword">void</span> *arg)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = *(<span class="keyword">int</span>*)arg;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;philosopher init [%d] \n&quot;</span>, id);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        thinking(id);</span><br><span class="line">        pthread_mutex_lock(&amp;mutex);</span><br><span class="line">        take_forks(id);</span><br><span class="line">        pthread_mutex_unlock(&amp;mutex);</span><br><span class="line">        eating(id);</span><br><span class="line">        put_down_forks(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个代码有个问题就是同一时间只能有一个哲学家取筷子，效率比较低．但是可以防止死锁</p>
+<p><strong>解决方案2</strong>:至多四个人拿起左边筷子，保证至少有一个人可以用餐，那么就能解决了，添加一个信号量room赋值等于4</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*************</span></span><br><span class="line"><span class="comment"> *           every philosopher is in while loop: thinking -&gt; take_forks -&gt; eating -&gt; put_down_forks -&gt; thingking</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *           对于可能产生的死锁问题，我们这里采用一中解决的办法，那就是只有当哲学接的左右两只筷子均处于可用状态时，</span></span><br><span class="line"><span class="comment"> *           才允许他拿起筷子。这样就可以避免他们同时拿起筷子就餐，导致死锁。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *           如果2号哲学家在吃饭那么１号和３号就必须是在思考．</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> ************/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;semaphore.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 5 <span class="comment">// five philosopher</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> T_EAT 5</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> T_THINK 5</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N_ROOM  4  <span class="comment">//同一时间只允许４人用餐</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> left(phi_id) (phi_id+N-1)%N</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> right(phi_id) (phi_id+1)%N</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> &#123; think , hungry , eat  &#125;phi_state[N];</span><br><span class="line"><span class="keyword">sem_t</span> chopstick[N];</span><br><span class="line"><span class="keyword">sem_t</span> room;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">thinking</span><span class="params">(<span class="keyword">int</span> id)</span></span>&#123;</span><br><span class="line">    sleep(T_THINK);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;philosopher[%d] is thinking...\n&quot;</span>, id);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">eating</span><span class="params">(<span class="keyword">int</span> id)</span></span>&#123;</span><br><span class="line">    sleep(T_EAT);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;philosopher[%d] is eating...\n&quot;</span>, id);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">take_forks</span><span class="params">(<span class="keyword">int</span> id)</span></span>&#123;</span><br><span class="line">    <span class="comment">//获取左右两边的筷子</span></span><br><span class="line">    <span class="comment">//printf(&quot;Pil[%d], left[%d], right[%d]\n&quot;, id, left(id), right(id));</span></span><br><span class="line">    sem_wait(&amp;chopstick[left(id)]);</span><br><span class="line">    sem_wait(&amp;chopstick[right(id)]);</span><br><span class="line">    <span class="comment">//printf(&quot;philosopher[%d]  take_forks...\n&quot;, id);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">put_down_forks</span><span class="params">(<span class="keyword">int</span> id)</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;philosopher[%d] is put_down_forks...\n&quot;</span>, id);</span><br><span class="line">    sem_post(&amp;chopstick[left(id)]);</span><br><span class="line">    sem_post(&amp;chopstick[right(id)]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">philosopher_work</span><span class="params">(<span class="keyword">void</span> *arg)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = *(<span class="keyword">int</span>*)arg;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;philosopher init [%d] \n&quot;</span>, id);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        thinking(id);</span><br><span class="line">        sem_wait(&amp;room);</span><br><span class="line">        take_forks(id);</span><br><span class="line">        sem_post(&amp;room);</span><br><span class="line">        eating(id);</span><br><span class="line">        put_down_forks(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">pthread_t</span> phiTid[N];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> err;</span><br><span class="line">    <span class="keyword">int</span> *id=(<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*N);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//initilize semaphore</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(sem_init(&amp;chopstick[i], <span class="number">0</span>, <span class="number">1</span>) != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;init forks error\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sem_init(&amp;room, <span class="number">0</span>, N_ROOM);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i &lt; N; ++i)&#123;</span><br><span class="line">        <span class="comment">//printf(&quot;i ==%d\n&quot;, i);</span></span><br><span class="line">        id[i] = i;</span><br><span class="line">        err = pthread_create(&amp;phiTid[i], <span class="literal">NULL</span>, philosopher_work, (<span class="keyword">void</span>*)(&amp;id[i])); <span class="comment">//这种情况生成的thread id是0,1,2,3,4</span></span><br><span class="line">        <span class="keyword">if</span> (err != <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;can&#x27;t create process for reader\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// delete the source of semaphore</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        err = sem_destroy(&amp;chopstick[i]);</span><br><span class="line">        <span class="keyword">if</span> (err != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;can&#x27;t destory semaphore\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决方案3</strong>：规定奇数号的哲学家先拿起他左边的筷子,然后再去拿他右边的筷子;而偶数号<br>的哲学家则相反.按此规定,将是1,2号哲学家竞争1号筷子,3,4号哲学家竞争3号筷子.即<br>五个哲学家都竞争奇数号筷子,获得后,再去竞争偶数号筷子,最后总会有一个哲学家能获<br>得两支筷子而进餐。而申请不到的哲学家进入阻塞等待队列，根FIFO原则，则先申请的哲<br>学家会较先可以吃饭，因此不会出现饿死的哲学家</p>
+<p>修改函数如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">take_forks</span><span class="params">(``<span class="keyword">int</span>``id)</span></span>&#123;</span><br><span class="line">   ``<span class="comment">//获取左右两边的筷子``  ``</span></span><br><span class="line">	<span class="comment">//printf(&quot;Pil[%d], left[%d], right[%d]\n&quot;, id, left(id), right(id));</span></span><br><span class="line">	``  ``<span class="keyword">if</span>``((id&amp;<span class="number">1</span>) == <span class="number">1</span>)&#123;``    </span><br><span class="line">	``sem_wait(&amp;chopstick[left(id)]);``</span><br><span class="line">    ``sem_wait(&amp;chopstick[right(id)]);``  ``&#125;``  ``</span><br><span class="line">    <span class="keyword">else</span>  &#123;        sem_wait(&amp;chopstick[right(id)]);``    					 ``		               sem_wait(&amp;chopstick[left(id)]);</span><br><span class="line">           &#125;</span><br><span class="line">    <span class="comment">//printf(&quot;philosopher[%d] take_forks...\n&quot;, id);</span></span><br><span class="line">    ``&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
 
             </div>
 
@@ -682,8 +783,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2020/10/23/operate%20system/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2020/10/23/operate%20system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2020/11/04/operate%20system/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2020/11/04/operate%20system/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
